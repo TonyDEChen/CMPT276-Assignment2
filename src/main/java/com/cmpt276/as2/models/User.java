@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int uid;
-
+    private int id;
+    
     private String name;
     private int weight;
     private int height;
@@ -25,6 +25,12 @@ public class User {
         this.gpa = gpa;
         this.alive = alive;
     }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -34,7 +40,7 @@ public class User {
     public int getWeight() {
         return weight;
     }
-    public void setWeight(int weight) {
+    public void setWeight(int weight) { 
         this.weight = weight;
     }
     public int getHeight() {
@@ -61,39 +67,5 @@ public class User {
     public void setAlive(String alive) {
         this.alive = alive;
     }
-
-    // private String password;
-    // private int size;
-    // public User() {
-    // }
-    // public User(String name, String password, int size) {
-    //     this.name = name;
-    //     this.password = password;
-    //     this.size = size;
-    // }
-    // public String getName() {
-    //     return name;
-    // }
-    // public void setName(String name) {
-    //     this.name = name;
-    // }
-    // public String getPassword() {
-    //     return password;
-    // }
-    // public void setPassword(String password) {
-    //     this.password = password;
-    // }
-    // public int getSize() {
-    //     return size;
-    // }
-    // public void setSize(int size) {
-    //     this.size = size;
-    // }
-    // public int getUid() {
-    //     return uid;
-    // }
-    // public void setUid(int uid) {
-    //     this.uid = uid;
-    // }
     
 }

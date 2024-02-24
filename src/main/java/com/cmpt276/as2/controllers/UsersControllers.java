@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,11 +45,15 @@ public class UsersControllers {
         double newGpa = Double.parseDouble(newuser.get("gpa"));
         String newAlive = newuser.get("alive");
         userRepo.save(new User(newName, newWeight, newHeight, newHair, newGpa, newAlive));
-        // String newName = newuser.get("name");
-        // String newPwd = newuser.get("password");
-        // int newSize = Integer.parseInt(newuser.get("size"));
-        // userRepo.save(new User(newName, newPwd, newSize));
         response.setStatus(201);
         return "users/addedUser";
+    }
+
+    @PostMapping("/users/remove")
+    public String removeUser(@RequestParam("id") int id){
+        System.out.println("REMOVE user " + id);
+        // Integer sid = Integer.valueOf(id);
+        userRepo.deleteById(id);
+        return "users/removedUser";
     }
 }
