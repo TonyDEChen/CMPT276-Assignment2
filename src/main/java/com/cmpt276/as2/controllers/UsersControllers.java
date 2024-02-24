@@ -1,6 +1,6 @@
 package com.cmpt276.as2.controllers;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,9 +36,16 @@ public class UsersControllers {
     public String addUser(@RequestParam Map<String, String> newuser, HttpServletResponse response){
         System.out.println("ADD user");
         String newName = newuser.get("name");
-        String newPwd = newuser.get("password");
-        int newSize = Integer.parseInt(newuser.get("size"));
-        userRepo.save(new User(newName, newPwd, newSize));
+        int newWeight = Integer.parseInt(newuser.get("weight"));
+        int newHeight = Integer.parseInt(newuser.get("height"));
+        String newHair = newuser.get("hair");
+        double newGpa = Double.parseDouble(newuser.get("gpa"));
+        String newAlive = newuser.get("alive");
+        userRepo.save(new User(newName, newWeight, newHeight, newHair, newGpa, newAlive));
+        // String newName = newuser.get("name");
+        // String newPwd = newuser.get("password");
+        // int newSize = Integer.parseInt(newuser.get("size"));
+        // userRepo.save(new User(newName, newPwd, newSize));
         response.setStatus(201);
         return "users/addedUser";
     }
