@@ -33,36 +33,24 @@
                             <td th:text="${user.hair}"></td>
                             <td th:text="${user.gpa}"></td>
                             <td th:text="${user.alive}"></td>
-                            <!-- <td><a  class="btn btn-primary" href="#" role="button">edit</a></td> -->
+                            <td>
+                                <form action="/users/edit" method="get">
+                                    <input type="hidden" id="id" name="id" th:value="${user.id}">
+                                    <button class="btn btn-primary" type="submit" value="SEND">Edit</button>
+                                </form>
+                            </td>
                             <td>
                                 <form action="/users/remove" method="post">
                                     <input type="hidden" id="id" name="id" th:value="${user.id}">
                                     <button class="btn btn-primary" type="submit" value="SEND">Remove</button>
                                 </form>
-                                <!-- <form th:action="@{/users/{id}(id=${user.id})}" method="post">
-                                    <input type="hidden" name="_method" value="delete" />
-                                    <input type="submit" value="Delete" />
-                                </form>                                 -->
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="col text-center">
                     <a  class="btn btn-primary" href="../add.html" role="button">Add Student</a>
-                    <!-- <a  class="btn btn-primary" href="../add.html" role="button">Edit Student</a>
-                    <a  class="btn btn-primary" href="../add.html" role="button">Remove Student</a> -->
                 </div>
-                <!-- <ul>
-                    <li th:each="user:${us}">
-                        <span th:style="'font-size:'+${user.size}+'pt'" th:text="${user.name}"></span> <br>
-                        <span th:text="${user.password}"></span>
-                        <div th:switch="${user.name}">
-                            <span th:case="'bobby'">HEY! It's the instructor!!!</span>
-                            <span th:case="'steve'">Uh oh! It's Steve!</span>
-                            <span th:case="*">General User</span>
-                        </div>
-                    </li>
-                </ul> -->
             </div>
         </div>
     </main>

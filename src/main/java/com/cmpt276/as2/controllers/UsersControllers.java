@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +47,21 @@ public class UsersControllers {
         String newAlive = newuser.get("alive");
         userRepo.save(new User(newName, newWeight, newHeight, newHair, newGpa, newAlive));
         response.setStatus(201);
-        return "users/addedUser";
+        return "redirect:/users/view";
+    }
+
+    @GetMapping("/users/edit")
+    public String showEdit(@RequestParam("id") int id, Model model){
+        System.out.println("Getting user " + id);
+        User user = userRepo.getReferenceById(id);
+        model.addAttribute("user", user);
+        return "users/editForm";
+    }
+    @PostMapping("/users/edit")
+    public String editUser(@ModelAttribute("user") User user){
+        System.out.println("Editing user");
+        userRepo.save(user);
+        return "redirect:/users/view";
     }
 
     @PostMapping("/users/remove")
@@ -54,6 +69,7 @@ public class UsersControllers {
         System.out.println("REMOVE user " + id);
         // Integer sid = Integer.valueOf(id);
         userRepo.deleteById(id);
-        return "users/removedUser";
+        // return "users/addedUser";
+        return "redirect:/users/view";
     }
 }
