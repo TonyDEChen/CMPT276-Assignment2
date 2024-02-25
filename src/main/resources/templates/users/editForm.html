@@ -15,25 +15,26 @@
 
                     <input type="hidden" id="id" name="id" th:value="${user.id}"/>
 					<div class="mb-3">
-						<input type="text" id="name" name="name" class="form-control form-control-lg" th:field="*{name}">
+						<input type="text" id="name" name="name" class="form-control form-control-lg" th:field="*{name}" placeholder="Name">
 					</div>
 					<div class="mb-3">
-						<input type="text" id="weight" name="weight" class="form-control form-control-lg" th:field="*{weight}">
+						<input type="text" id="weight" name="weight" class="form-control form-control-lg" th:field="*{weight}" placeholder="Weight">
 					</div>
 					<div class="mb-3">
-						<input type="text" id="height" name="height" class="form-control form-control-lg" th:field="*{height}">
+						<input type="text" id="height" name="height" class="form-control form-control-lg" th:field="*{height}" placeholder="Height">
 					</div>
 					<div class="mb-3">
-						<input type="text" id="hair" name="hair" class="form-control form-control-lg" th:field="*{hair}">
+						<input type="text" id="hair" name="hair" class="form-control form-control-lg" th:field="*{hair}" placeholder="Hair Color">
 					</div>
 					<div class="mb-3">
-						<input type="text" id="gpa" name="gpa" class="form-control form-control-lg" th:field="*{gpa}">
+						<input type="text" id="gpa" name="gpa" class="form-control form-control-lg" th:field="*{gpa}" placeholder="GPA">
 					</div>
 					<div class="mb-3">						
-						<input type="text" id="alive" name="alive" class="form-control form-control-lg" th:field="*{alive}">
+						<input type="text" id="alive" name="alive" class="form-control form-control-lg" th:field="*{alive}" placeholder="Alive?">
 					</div>
                 
                     <div class="d-grid gap-2">
+						<!-- submit button -->
                         <input class="btn btn-primary" type="submit" value="SEND"></input>
                     </div>
 
